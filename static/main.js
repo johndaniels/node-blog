@@ -1,4 +1,5 @@
 (function () {
+    "use strict";
     var Router = Backbone.Router.extend({
         routes: {
             'about': 'about',
