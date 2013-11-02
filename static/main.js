@@ -20,11 +20,11 @@
     });
 
     var postTemplate = Mustache.compile(
-        '<h1>{{title}}</h1><div id="post-body">{{body}}</div>'
+        '<h1 class="title">{{title}}</h1><div id="post-body">{{body}}</div>'
     );
 
     var postsTemplate = Mustache.compile(
-        '{{#posts}}<div><a href="#{{fragment}}">{{title}}</a></div>{{/posts}}'
+        '<h1 class="title">Archive</h1>{{#posts}}<div><a class="post-link" href="#{{fragment}}">{{title}}</a></div>{{/posts}}'
     );
 
     var Router = Backbone.Router.extend({
