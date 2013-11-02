@@ -10,7 +10,9 @@
         },
 
         post: function (id) {
-            $('#main').html('<h1>post ' + id + '</h1>');
+            $('#main').html(Mustache.render('<h1>post {{id}} </h1>', {
+                id: id
+            }));
         }
     });
 
