@@ -10,5 +10,9 @@
         });
     });
 
+    app.get('/', function (req, res) {
+        res.sendfile("main.html");
+    });
+
     app.listen('8080');
 })();
