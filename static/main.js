@@ -31,9 +31,13 @@
         routes: {
             'about': 'about',
             'posts/:id': 'post',
-            'posts': 'posts'
+            'posts': 'posts',
+	    '*path': 'default'
         },
 
+	default: function(){
+		this.navigate("/posts");
+	    },
         about: function() {
             $('#main').html('<h1>about page</h1>');
         },
