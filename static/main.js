@@ -1,5 +1,20 @@
 (function () {
     "use strict";
+    
+    var Post = Backbone.Model.extend({
+        urlRoot: '/api/v0/posts',
+        title: function () {
+            return this.get('title');
+        },
+        body: function () {
+            return this.get('body');
+        }
+    });
+
+    var postTemplate = Mustache.compile(
+        '<h1>{{title}}</h1><div id="post-body">{{body}}</div>'
+    );
+
     var Router = Backbone.Router.extend({
         routes: {
             'about': 'about',
@@ -11,9 +26,12 @@
         },
 
         post: function (id) {
-            $('#main').html(Mustache.render('<h1>post {{id}} </h1>', {
+            var post = new Post({
                 id: id
-            }));
+            });
+            post.fetch().done(function () {
+                $('#main').html(postTemplate(post));
+            });
         }
     });
 
